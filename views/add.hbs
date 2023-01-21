@@ -1,0 +1,49 @@
+<h1>Add new course</h1>
+
+{{#if error}}
+  <p class='alert'>{{error}}</p>
+{{/if}}
+
+<div class='row'>
+  <form class='col s12' action='/add' method='post'>
+    <div class='row'>
+      <div class='input-field'>
+        <input
+          id='title'
+          name='title'
+          type='text'
+          class='validate'
+          required
+          value='{{data.title}}'
+        />
+        <label for='title'>Course name</label>
+        <span class='helper-text' data-error='Inter course name'></span>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='input-field'>
+        <input
+          id='price'
+          name='price'
+          type='number'
+          class='validate'
+          required
+          min='1'
+          step='0.01'
+          value='{{data.price}}'
+        />
+        <label for='price'>Price</label>
+        <span class='helper-text' data-error='Inter prise'></span>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='input-field'>
+        <input id='img' name='img' type='text' class='validate' required value='{{data.img}}' />
+        <label for='img'>Image url</label>
+        <span class='helper-text' data-error='Inter url'></span>
+      </div>
+    </div>
+    <input type='hidden' name='_csrf' value='{{csrf}}' />
+    <button class='btn btn-primary' type='submit'>Add</button>
+  </form>
+</div>

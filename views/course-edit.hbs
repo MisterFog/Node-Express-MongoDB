@@ -1,0 +1,58 @@
+<h1>Edit course "{{course.title}}"</h1>
+
+<div class='row'>
+  <form class='col s12' action='/courses/edit' method='post'>
+    <div class='row'>
+      <div class='input-field'>
+        <input
+          id='title'
+          name='title'
+          type='text'
+          class='validate'
+          required
+          value='{{course.title}}'
+        />
+        <label for='title'>Course name</label>
+        <span class='helper-text' data-error='Inter course name'></span>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='input-field'>
+        <input
+          id='price'
+          name='price'
+          type='number'
+          class='validate'
+          required
+          min='1'
+          step='0.01'
+          value='{{course.price}}'
+        />
+        <label for='price'>Price</label>
+        <span class='helper-text' data-error='Inter prise'></span>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='input-field'>
+        <input id='img' name='img' type='text' class='validate' required value='{{course.img}}' />
+        <label for='img'>Image url</label>
+        <span class='helper-text' data-error='Inter url'></span>
+      </div>
+    </div>
+
+    <input type='hidden' name='id' value='{{course.id}}' />
+    <input type='hidden' name='_csrf' value='{{csrf}}' />
+    <button class='btn btn-primary' type='submit'><i
+        class='material-icons right'
+      >edit</i>Edit</button>
+  </form>
+
+  <form action='/courses/remove' method='post'>
+    <input type='hidden' name='id' value='{{course.id}}' />
+    <input type='hidden' name='_csrf' value='{{csrf}}' />
+    <button class='btn btn-secondary' type='submit'>
+      <i class='material-icons right'>delete</i>
+      Delete
+    </button>
+  </form>
+</div>
